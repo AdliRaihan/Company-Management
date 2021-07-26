@@ -15,4 +15,10 @@ public open class LocalResources {
         }
         val componentImage = R.layout.component_images
     }
+    object Features {
+        object Screen {
+            val imageHeader = "ImageHeader"
+            val dealItem = "DealItem"
+        }
+    }
 }
