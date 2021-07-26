@@ -7,7 +7,7 @@ class DashboardViewModelTest {
     private val viewModel: DashboardViewModel = DashboardViewModel()
     @Test
     fun setupScreenContent() {
-        val expectedValue = arrayOf(LocalResources.Features.Screen.imageHeader, LocalResources.Features.Screen.dealItem)
+        val expectedValue = arrayOf(LocalResources.Features.Screen.ImageHeader, LocalResources.Features.Screen.DealItem)
         // Initialize the screen Type Display
         viewModel.getScreenContentDisplay()
         assert(viewModel.screenContentDisplay.size == 2)

@@ -1,4 +1,4 @@
-package com.example.companymanagement.scene.component
+package com.example.companymanagement.scene.component.cardItems
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,9 @@ class ComponentCardItemsAdapter(private val data: Array<ComponentCardModel>): Re
             LocalResources.Layout.Component.recyclerComponentItem,
             parent,
             false)
-        return ContentViewHolder(contentView)
+        return ContentViewHolder(
+            contentView
+        )
     }
     override fun getItemCount(): Int {
         return data.size

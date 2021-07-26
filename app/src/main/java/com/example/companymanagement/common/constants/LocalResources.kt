@@ -11,14 +11,13 @@ public open class LocalResources {
         }
         object Component {
             val componentCardItem = R.layout.component_card_items
+            val componentImage = R.layout.component_images
             val recyclerComponentItem = R.layout.recycler_card_items
         }
-        val componentImage = R.layout.component_images
     }
     object Features {
-        object Screen {
-            val imageHeader = "ImageHeader"
-            val dealItem = "DealItem"
+        enum class Screen {
+            ImageHeader, DealItem
         }
     }
 }
