@@ -5,11 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.companymanagement.R
-
-class BaseFragment: Fragment() {
-    private var layout: Int? = null
+open class BaseFragment: Fragment() {
+    open var layout: Int? = null
     companion object {
-        fun instanceWithLayout(layout: Int): BaseFragment {
+        open fun instanceWithLayout(layout: Int): BaseFragment {
             val baseFragment = BaseFragment()
             baseFragment.layout = layout
             return baseFragment
@@ -24,5 +23,8 @@ class BaseFragment: Fragment() {
             return inflater.inflate(R.layout.base_fragment, container, false)
         }
         return inflater.inflate(this.layout!!, container, false)
+    }
+    fun <T: View> getOutlet(value: Int): T? {
+        return this.view?.findViewById(value)
     }
 }
