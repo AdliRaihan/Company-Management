@@ -12,7 +12,7 @@ open class BaseActivity: AppCompatActivity() {
     open var reusableViews: RecyclerView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.base_layout)
+        setContentView(LocalResources.Layout.Activity.base)
     }
     open fun displayCurrentContext(ActivityView: Int) {
         this.baseFragment = BaseFragment.instanceWithLayout(ActivityView)
@@ -24,12 +24,15 @@ open class BaseActivity: AppCompatActivity() {
             ).commit()
         }
     }
-    open fun <T: BaseFragment> attachFragment(fragment: T?, attachTo: Int) {
-        if (fragment != null && supportFragmentManager.findFragmentById(fragment.id) == null) {
+    open fun <T: BaseFragment> attachFragment(fragment: T?, attachTo: Int, identifierBundle: String? = null) {
+        if (fragment != null && !fragment.isAdded) {
+            fragment.arguments = Bundle().apply {
+                putString(attachTo.toString(), identifierBundle)
+            }
             supportFragmentManager.beginTransaction().add(
                 attachTo,
-                fragment!!,
-                attachTo.toString()
+                fragment,
+                identifierBundle
             ).commit()
         }
     }

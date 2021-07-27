@@ -3,21 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="310dp">
         <ImageView
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="Test"/>
+            android:id="@+id/componentImageView"
+            android:src="@drawable/drawable_component_header_image"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/drawable_component_header_image"/>
         <TextView
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="44dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="44dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Company Management"
             android:textSize="32sp"
-            android:textStyle="bold"
-            android:text="Company Management"/>
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </RelativeLayout>
 </LinearLayout>

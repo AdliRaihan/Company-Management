@@ -5,8 +5,10 @@ class DashboardViewModel {
     open fun getScreenContentDisplay() {
         // For now its default, im not working with api right now
         this.screenContentDisplay = arrayOf(
+            LocalResources.Features.Screen.ImageHeader,
+            LocalResources.Features.Screen.BrowseByCategory,
             LocalResources.Features.Screen.DealItem,
-            LocalResources.Features.Screen.ImageHeader
+            LocalResources.Features.Screen.Featured
         )
     }
 }

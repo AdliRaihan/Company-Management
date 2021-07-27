@@ -4,12 +4,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
+
     <TextView
+        android:id="@+id/textViewComponentCardItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Header"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16dp"
-        android:layout_marginBottom="10dp"/>
+        android:textColor="@color/white"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

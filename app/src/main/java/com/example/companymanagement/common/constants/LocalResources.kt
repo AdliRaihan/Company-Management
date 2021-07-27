@@ -1,23 +1,24 @@
 package com.example.companymanagement.common.constants
 import com.example.companymanagement.R
-public open class LocalResources {
+open class LocalResources {
     object Layout {
         object Fragments {
-            val baseFragment = R.layout.base_fragment
+            const val baseFragment = R.layout.base_fragment
         }
         object Activity {
-            val dashboard = R.layout.activity_dashboard
-            val dashboardV2 = R.layout.activity_dashboard_v2
+            const val base = R.layout.base_layout
+            const val dashboard = R.layout.activity_dashboard
+            const val dashboardV2 = R.layout.activity_dashboard_v2
         }
         object Component {
-            val componentCardItem = R.layout.component_card_items
-            val componentImage = R.layout.component_images
-            val recyclerComponentItem = R.layout.recycler_card_items
+            const val componentCardItem = R.layout.component_card_items
+            const val componentImage = R.layout.component_images
+            const val recyclerComponentItem = R.layout.recycler_card_items
         }
     }
     object Features {
         enum class Screen {
-            ImageHeader, DealItem
+            ImageHeader, DealItem, BrowseByCategory, Featured
         }
     }
 }
