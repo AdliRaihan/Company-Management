@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.companymanagement.R
 import com.example.companymanagement.common.constants.LocalResources
 import com.example.companymanagement.scene.base.BaseFragment
-
 class ComponentCardItems: BaseFragment() {
 //    open lateinit var dataBinding: // Later Will Be Updated
-    open var title: String? = null
-    open var dataSource: Array<ComponentCardModel> = arrayOf()
+    var title: String? = null
+    var dataSource: Array<ComponentCardModel> = arrayOf()
     private var componentHeaderText: TextView? = null
     private var componentCardTitle: RecyclerView? = null
     var adapter: ComponentCardItemsAdapter? = null

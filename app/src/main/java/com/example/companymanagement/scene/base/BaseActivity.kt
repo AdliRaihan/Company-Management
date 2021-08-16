@@ -1,21 +1,36 @@
 package com.example.companymanagement
+import android.graphics.PorterDuff
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.core.content.ContextCompat
 import com.example.companymanagement.common.constants.LocalResources
+import com.example.companymanagement.common.constants.UIResources.Companion.getLocalisation
+import com.example.companymanagement.common.network.Network
 import com.example.companymanagement.scene.base.BaseFragment
+import com.example.companymanagement.scene.base.BaseFragmentInterface
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity: AppCompatActivity(), BaseFragmentInterface {
+    open var componentNavigationBarProfile: ImageView? = null
+    open var componentNavigationLeftButtonProfile: ImageView? = null
+    open var localisationManager = getLocalisation
     open var baseFragment: BaseFragment? = null
-    open var reusableViews: RecyclerView? = null
+    open var viewHolder: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(LocalResources.Layout.Activity.base)
+        this.viewHolder = intent.getSerializableExtra(LocalResources.ConstantValue.constantKeyViewHolderKey) as? Int
+        this.prepareLoadActivityLayout()
     }
-    open fun displayCurrentContext(ActivityView: Int) {
+    private fun prepareLoadActivityLayout() {
+        if (this.viewHolder != null)
+            this.displayCurrentContext(viewHolder!!)
+        else
+            println("Failed To load view holder")
+    }
+    private fun displayCurrentContext(ActivityView: Int) {
         this.baseFragment = BaseFragment.instanceWithLayout(ActivityView)
+        this.baseFragment?.delegate = this
         if (this.baseFragment != null) {
             supportFragmentManager.beginTransaction().add(
                 R.id.baseLinearLayout,
@@ -35,5 +50,19 @@ open class BaseActivity: AppCompatActivity() {
                 identifierBundle
             ).commit()
         }
+    }
+    override fun didFragmentFinishedLoading() {
+        this.fragmentHolderDidLoad()
+    }
+    open fun fragmentHolderDidLoad() {
+        this.setupNavigationUI()
+    }
+    private fun setupNavigationUI() {
+        this.componentNavigationBarProfile = findViewById(R.id.baseLayoutProfileImage)
+        this.componentNavigationLeftButtonProfile = findViewById(R.id.baseLayoutNavigationLeftButton)
+        this.componentNavigationLeftButtonProfile?.apply {
+            setColorFilter(ContextCompat.getColor(this@BaseActivity, R.color.white), PorterDuff.Mode.MULTIPLY)
+        }
+        Network.shared().loadImage("https://avatars.githubusercontent.com/u/43267304?v=4", this.componentNavigationBarProfile)
     }
 }

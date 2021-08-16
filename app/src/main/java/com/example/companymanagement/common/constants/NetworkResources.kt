@@ -6,8 +6,15 @@ class NetworkResources {
         private const val version: String = "/v1"
         const val baseURL: String = "$url$version"
     }
-    enum class endpoint(val value: String) {
+    enum class Endpoint(val value: String) {
         Login("${Base.baseURL}/login.php"),
-        RenewAuth("${Base.baseURL}/renew.php")
+        RenewAuth("${Base.baseURL}/renew.php"),
+        ListPhotos("/photos"),
+        Me("/me")
+    }
+    // Self reminder : if this get pushed then the repo should be private
+    object APIAccess {
+        const val accessID = ""
+        const val secretKey = ""
     }
 }

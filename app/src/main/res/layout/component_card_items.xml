@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
-
     <TextView
         android:id="@+id/textViewComponentCardItems"
         android:layout_width="wrap_content"
