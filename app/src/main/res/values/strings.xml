@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Company management</string>
+    <string name="app_name">Lorem Ipsum</string>
+    <string name="app_navigation_top_bar_location">Location</string>
+    <string name="app_navigation_top_bar_default_location">Bandung, Indonesia</string>
+    <string name="app_getting_started">Attendance</string>
+    <string name="app_getting_started_information">Simple Attendance Work Development</string>
+<!--    Static -->
+    <string name="app_unknown_string">Unknown</string>
+    <string name="app_quick_actions">Quick Action</string>
+<!--    app Log -->
+    <string name="app_login_as_guest">Guest</string>
+    <string name="app_login_as_employee">Continue</string>
 </resources>
